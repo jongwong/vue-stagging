@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2015
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@", "./src/"],
+                    ["@assets", "./src/assets"],
+                    ["@c", "./src/layout/components"],
+                    ["@p", "./src/layout/pages"]
+                ]
+            }
+        }
+    },
+    "rules": {
+        "no-eval": 1
+        //禁止使用eval
+    }
+}
