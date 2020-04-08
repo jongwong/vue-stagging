@@ -2,24 +2,40 @@ import Vue from "vue";
 import Router from "vue-router";
 import HelloPage from "src/layout/pages/hello-page";
 
-Vue.use(Router);
+Vue.use(Router); // 在vue中注入Router
 
 const routes = [
     {
         path: "/",
-        redirect: "/hello",
+        redirect: "/login",
     },
     {
-        path: "/hello",
-        name: "hello",
+        path: "/login",
+        name: "login",
         component: HelloPage,
     },
 ];
 
-const router = new Router({
+// 将路径注入到Router中
+var router = new Router({
     mode: "history",
     routes,
 });
 
+const isLogin = () => Boolean(localStorage.getItem("token"));
+router.beforeEach((to, from, next) => {
+    if (to.matched.some((item) => item.meta.requireAuth)) {
+        if (!isLogin()) {
+            next({
+                path: "/",
+                replace: true,
+            });
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 // 导出路由
 export default router;

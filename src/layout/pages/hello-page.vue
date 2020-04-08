@@ -1,22 +1,24 @@
 <template>
-    <div class="main-container">
-        {{ msg }}
-        {{ $t("login") }}
-        <img src="../../assets/1.png" />
-    </div>
+  <div class="main-container">{{ msg }}</div>
 </template>
 
 <script>
 export default {
-    name: "hello-page",
-    data() {
-        return { msg: "hello-page" };
-    },
+   name: "hello-page",
+  data() {
+    return { msg: "hello-page" };
+  },
 };
+
+
+
+
 </script>
 
 <style scoped lang="scss">
-.main-container {
+  .main-container {
     background-color: $kb-navy;
-}
+  }
 </style>
+
+

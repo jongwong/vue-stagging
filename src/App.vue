@@ -1,18 +1,21 @@
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view name="header"></router-view>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
+  
 export default {
-    name: "App",
-    components: {},
+  name: 'App'
 };
+
 </script>
 
 <style lang="scss">
-@import "./theme/reset.scss";
-@import "./theme/font.scss";
-@import "./theme/custom.scss";
+
+#app {
+  height: 100%;
+}
 </style>
